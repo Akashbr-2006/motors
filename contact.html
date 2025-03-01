@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Chandana Motors</title>
+    <title>Contact Us - Chandana Motors</title>
     <!-- Importing Google Fonts for better typography -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -86,37 +86,52 @@
             padding: 3rem 2rem;
         }
 
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .contact-info {
+            text-align: center;
             margin-top: 2rem;
         }
 
-        .service {
-            background: #f4f4f4;
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .contact-form {
+            background: #fff;
             padding: 2rem;
-            border: 1px solid #ddd;
-            text-align: center;
             border-radius: 10px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .service h3 {
-            margin-top: 0;
-            color: #333;
-            font-size: 1.8rem;
-        }
-
-        .service p {
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
-            color: #555;
-        }
-
-        .service:hover {
-            transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background-color: #FF6347;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #e74c3c;
         }
 
         footer {
@@ -140,11 +155,7 @@
 
         /* Mobile optimization */
         @media (max-width: 768px) {
-            .service {
-                padding: 1rem 0.5rem;
-            }
-
-            header h1 {
+            .contact-info h2 {
                 font-size: 2rem;
             }
 
@@ -158,43 +169,31 @@
 <body>
 
     <header>
-        <h1>Chandana Motors - Our Services</h1>
-        <p>Expert solutions to keep your car running smoothly!</p>
+        <h1>Chandana Motors - Contact Us</h1>
+        <p>Your trusted partner in car care and maintenance</p>
     </header>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="services.html">Services</a>
     </nav>
 
     <div class="container">
-        <h2>Services We Offer</h2>
-        <div class="services">
-            <div class="service">
-                <h3>Oil Change</h3>
-                <p>Keep your engine running smoothly with our premium oil change services.</p>
-            </div>
-            <div class="service">
-                <h3>Tire Repair</h3>
-                <p>Flat tire? No problem! We’ll get you back on the road in no time.</p>
-            </div>
-            <div class="service">
-                <h3>Diagnostics</h3>
-                <p>Advanced diagnostics to pinpoint and fix any issue in your vehicle.</p>
-            </div>
-            <div class="service">
-                <h3>Battery Replacement</h3>
-                <p>Get your car powered up with our quick and reliable battery replacement.</p>
-            </div>
-            <div class="service">
-                <h3>Brake Service</h3>
-                <p>Ensure your safety with our expert brake inspection and repair services.</p>
-            </div>
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>If you have any questions or would like to book a service, feel free to reach out to us. We look forward to hearing from you!</p>
         </div>
 
-        <h3>Contact Us for More Information or to Book an Appointment!</h3>
-        <p>If you have any questions or would like to schedule a service, feel free to contact us.</p>
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form action="submit-form.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </div>
 
     <footer>
