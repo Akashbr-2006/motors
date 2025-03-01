@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0020)https://akash.works/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Service Station</title>
     <style>
@@ -10,27 +12,57 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
+
         header {
             background: #333;
             color: #fff;
             padding: 1rem 0;
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards; /* Fade-in effect for header */
         }
+
         nav {
             display: flex;
             justify-content: center;
             background: #444;
             padding: 0.5rem 0;
         }
+
         nav a {
             color: #fff;
             margin: 0 1rem;
             text-decoration: none;
+            position: relative;
+            display: inline-block;
         }
+
         nav a:hover {
             text-decoration: underline;
+            color: #ff9c00; /* Hover color change */
         }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #ff9c00;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
         .hero {
             background: url('photos/first_page.png') no-repeat center center/cover;
             color: #fff;
@@ -39,29 +71,43 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s 1s forwards; /* Fade-in effect for hero section */
         }
+
         .hero h1 {
             font-size: 2.5rem;
             margin: 0;
         }
+
         .container {
             padding: 2rem;
         }
+
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
         }
+
         .service {
-            background:#f4f4f4;
+            background: #f4f4f4;
             padding: 1rem;
             border: 1px solid #ddd;
             text-align: center;
             border-radius: 5px;
+            transition: transform 0.3s ease-in-out; /* Animation for zoom effect */
         }
+
         .service h3 {
             margin-top: 0;
         }
+
+        .service:hover {
+            transform: scale(1.05); /* Zoom-in effect on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+        }
+
         footer {
             background: #333;
             color: #fff;
@@ -69,8 +115,20 @@
             padding: 1rem 0;
             margin-top: 2rem;
         }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Welcome to Chandana Motors</h1>
@@ -87,9 +145,27 @@
         <h1>Get Your Car Running Like New</h1>
     </div>
 
+    <div class="container">
+        <section class="services">
+            <div class="service">
+                <h3>Oil Change</h3>
+                <p>Keep your engine running smoothly with regular oil changes.</p>
+            </div>
+            <div class="service">
+                <h3>Brake Service</h3>
+                <p>Ensure your safety with reliable brake system maintenance.</p>
+            </div>
+            <div class="service">
+                <h3>Tire Rotation</h3>
+                <p>Maximize the lifespan of your tires with regular rotation.</p>
+            </div>
+        </section>
+    </div>
+
     <footer>
         <p>© 2025 Chandana Motors. All rights reserved.</p>
     </footer>
 
+</body>
 
-</body></html>
+</html>
