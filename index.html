@@ -2,75 +2,83 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Service Station</title>
-    <!-- Importing Google Fonts for a unique typography style -->
+    <title>Chandana Motors - Premium Car Care</title>
+    <!-- Import Google Fonts for stylish typography -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
             background: linear-gradient(to right, #4ECDC4, #1A535C);
             color: #fff;
+            overflow-x: hidden;
         }
 
         header {
             background: #1A535C;
-            color: #fff;
-            padding: 3rem 0;
+            padding: 5rem 2rem;
             text-align: center;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
         }
 
         header h1 {
-            font-size: 3rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 4rem;
             font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
         }
 
         header p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            opacity: 0.8;
         }
 
+        /* Navigation Styling */
         nav {
             display: flex;
             justify-content: center;
-            background: #3F4A59;
-            padding: 1rem 0;
-            transition: background-color 0.3s;
+            background-color: #3F4A59;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background-color 0.3s ease;
         }
 
         nav a {
             color: #fff;
-            margin: 0 1.5rem;
             text-decoration: none;
-            font-size: 1.1rem;
+            margin: 0 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             text-transform: uppercase;
             position: relative;
-            padding-bottom: 5px;
-            transition: color 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
 
         nav a:hover {
             color: #FF6347;
-            text-decoration: none;
         }
 
         nav a::after {
             content: '';
             position: absolute;
             width: 100%;
-            height: 2px;
+            height: 3px;
             background-color: #FF6347;
             bottom: 0;
             left: 0;
@@ -84,101 +92,116 @@
             transform-origin: bottom left;
         }
 
+        /* Hero Section with Parallax Effect */
         .hero {
-            background: url('photos/first_page.png') no-repeat center center/cover;
-            color: #fff;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
             position: relative;
-            opacity: 0;
-            animation: fadeIn 2s 1s forwards;
+            background: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Car+Service+Hero') no-repeat center center/cover;
+            height: 100vh;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 3rem;
+            box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 3s ease-in-out;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin: 0;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            font-weight: 600;
+            font-size: 4rem;
+            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
             letter-spacing: 3px;
+            margin-bottom: 1rem;
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: slideInUp 1s forwards 0.5s;
         }
 
+        /* Container */
         .container {
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
+        /* Service Section */
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
         }
 
         .service {
-            background: #f4f4f4;
+            background: #fff;
+            color: #333;
+            border-radius: 15px;
             padding: 2rem;
-            border: 1px solid #ddd;
-            text-align: center;
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.2);
         }
 
         .service h3 {
-            margin-top: 0;
-            color: #333;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            color: #1A535C;
+            margin-bottom: 1rem;
         }
 
         .service p {
             font-size: 1.1rem;
-            margin-top: 0.5rem;
             color: #555;
+            line-height: 1.6;
         }
 
-        .service:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
+        /* Contact Section */
         .contact-form {
-            background: #f4f4f4;
+            background: #fff;
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-top: 2rem;
+            transition: transform 0.3s ease;
         }
 
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 1rem 0;
             border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
         }
 
         .contact-form button {
-            background-color: #333;
+            background-color: #FF6347;
             color: white;
-            padding: 10px 20px;
-            border: none;
+            padding: 15px;
             border-radius: 5px;
+            border: none;
             cursor: pointer;
             width: 100%;
-            transition: background-color 0.3s;
+            font-size: 1.2rem;
+            transition: all 0.3s ease-in-out;
         }
 
         .contact-form button:hover {
-            background-color: #FF6347;
+            background-color: #FF4500;
+            transform: scale(1.05);
         }
 
         .map-container {
             margin-top: 2rem;
-            height: 400px;
-            width: 100%;
             position: relative;
+            animation: fadeIn 1s ease-in-out 1.5s;
         }
 
         iframe {
@@ -187,73 +210,59 @@
             border: none;
         }
 
+        /* Footer Section */
         footer {
-            background: #1A535C;
+            background-color: #1A535C;
             color: #fff;
             text-align: center;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             margin-top: 3rem;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out 2s;
         }
 
-        /* Mobile Menu Button */
-        .menu-btn {
-            display: none;
-            background-color: #444;
-            color: white;
-            border: none;
-            font-size: 1.5rem;
-            padding: 10px;
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        footer p {
+            font-size: 1.2rem;
         }
 
-        /* Mobile Menu Styles */
-        nav.open {
-            display: block;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #444;
-            padding: 0.5rem 0;
-        }
-
-        nav.open {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #444;
-        }
-
-        nav a {
-            padding: 1rem 0;
-        }
-
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .menu-btn {
-                display: block;
+            header h1 {
+                font-size: 3rem;
             }
 
-            nav {
-                display: none;
-                flex-direction: column;
-                align-items: center;
+            .hero h1 {
+                font-size: 3rem;
             }
 
-            nav.open {
-                display: flex;
+            nav a {
+                font-size: 1rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
             }
         }
 
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
 
             to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
                 opacity: 1;
             }
         }
@@ -266,37 +275,38 @@
         <p>Your trusted partner in car care and maintenance</p>
     </header>
 
-    <!-- Mobile Menu Button -->
-    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
-
+    <!-- Navigation Menu -->
     <nav>
+        <a href="index.html">Home</a>
         <a href="service.html">Services</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact</a>
     </nav>
 
+    <!-- Hero Section -->
     <div class="hero">
         <h1>Get Your Car Running Like New</h1>
     </div>
 
+    <!-- Service Section -->
     <div class="container">
         <section class="services">
             <div class="service">
                 <h3>Oil Change</h3>
-                <p>Keep your engine running smoothly with regular oil changes.</p>
+                <p>Keep your engine running smoothly with our high-quality oil change services.</p>
             </div>
             <div class="service">
-                <h3>Brake Service</h3>
-                <p>Ensure your safety with reliable brake system maintenance.</p>
+                <h3>Brake Services</h3>
+                <p>Ensure your safety with premium brake maintenance and repairs.</p>
             </div>
             <div class="service">
                 <h3>Tire Rotation</h3>
-                <p>Maximize the lifespan of your tires with regular rotation.</p>
+                <p>Extend the life of your tires with regular rotations.</p>
             </div>
         </section>
     </div>
 
-    <!-- Contact Section with Form and Map -->
+    <!-- Contact Section -->
     <div class="container">
         <h2>Contact Us</h2>
         <div class="contact-form">
@@ -311,20 +321,14 @@
 
         <div class="map-container">
             <h3>Our Location</h3>
-            <iframe src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Chandana+Motors,+Maruti+Suzuki+Authorised+Service,12.945535,77.4961891" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Chandana+Motors,+Maruti+Suzuki+Authorized+Service,+12.945535,77.4961891" allowfullscreen></iframe>
         </div>
     </div>
 
+    <!-- Footer Section -->
     <footer>
-        <p>© 2025 Chandana Motors. All rights reserved.</p>
+        <p>&copy; 2025 Chandana Motors. All rights reserved.</p>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            nav.classList.toggle('open');
-        }
-    </script>
 </body>
 
 </html>
