@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandana Motors - Premium Car Care</title>
+    <!-- Import Google Fonts for stylish typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to right, #4ECDC4, #1A535C);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1A535C;
+            padding: 5rem 2rem;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #3F4A59;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #FF6347;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #FF6347;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Hero Section with Parallax Effect */
+        .hero {
+            position: relative;
+            background: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Car+Service+Hero') no-repeat center center/cover;
+            height: 100vh;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 3rem;
+            box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: slideInUp 1s forwards 0.5s;
+        }
+
+        /* Container */
+        .container {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Service Section */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .service {
+            background: #fff;
+            color: #333;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.2);
+        }
+
+        .service h3 {
+            font-size: 2rem;
+            color: #1A535C;
+            margin-bottom: 1rem;
+        }
+
+        .service p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 1rem 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background-color: #FF6347;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .contact-form button:hover {
+            background-color: #FF4500;
+            transform: scale(1.05);
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            position: relative;
+            animation: fadeIn 1s ease-in-out 1.5s;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #1A535C;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out 2s;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Chandana Motors</h1>
+        <p>Your trusted partner in car care and maintenance</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="service.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Get Your Car Running Like New</h1>
+    </div>
+
+    <!-- Service Section -->
+    <div class="container">
+        <section class="services">
+            <div class="service">
+                <h3>Oil Change</h3>
+                <p>Keep your engine running smoothly with our high-quality oil change services.</p>
+            </div>
+            <div class="service">
+                <h3>Brake Services</h3>
+                <p>Ensure your safety with premium brake maintenance and repairs.</p>
+            </div>
+            <div class="service">
+                <h3>Tire Rotation</h3>
+                <p>Extend the life of your tires with regular rotations.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="map-container">
+            <h3>Our Location</h3>
+            <iframe src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Chandana+Motors,+Maruti+Suzuki+Authorized+Service,+12.945535,77.4961891" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Chandana Motors. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
